@@ -34,8 +34,9 @@ class Transfer
   end
   
   def reverse_transfer
-    sender.deposit(self.amount)
-    receiver.deduction(self.amount)
-    @status = "reversed"
+    if valid? && @status = "completed" && receiver.balance > amount
+      sender.deposit(self.amount)
+      receiver.deduction(self.amount)
+      @status = "reversed"
   end
 end
