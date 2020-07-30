@@ -38,5 +38,6 @@ class Transfer
       sender.deposit(self.amount)
       receiver.deduction(self.amount)
       @status = "reversed"
+    end
   end
 end
